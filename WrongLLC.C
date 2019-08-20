@@ -9,6 +9,7 @@ void createll(node *&head,int data){
     if(head==NULL){
         ptr=(struct node*)malloc(sizeof(struct node));
         ptr->data=data;
+        ptr->next=head;
         head=ptr;
         return;
     }
