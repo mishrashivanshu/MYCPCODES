@@ -46,6 +46,19 @@ struct segment{
 		update(tree,mid+1,end,i,inc,2*index+1);
 		tree[index]=min(tree[2*index],tree[2*index+1]);
 	}
+	void update(int *tree,int start,int end,int l,int r,int inc,int index){
+		if(l>end||r<start){
+			return;
+		}
+		if(start==end){
+			tree[index]+=inc;
+			return;
+		}
+		int mid=(start+end)/2;
+		update(tree,start,mid,l,r,inc,2*index);
+		update(tree,mid+1,end,l,r,inc,2*index+1);
+		tree[index]=min(tree[2*index],tree[2*index+1]);
+	}
 };
 
 void solve(){
